@@ -1,0 +1,28 @@
+/*
+    Mixin programlama dillerindeki fonksiyonlara karşılık gelmektedir.
+
+*/
+
+@mixin border-radius($size){
+    -o-border-radius:$size;
+    -moz-border-radius:$size;
+    -webkit-border-radius:$size;
+    border-radius: $size;
+}
+
+$primary-color:darkblue;
+$secondary-color:white;
+$font-size:20px;
+$box-width:50%;
+$box-height:200px;
+
+.box{
+    font-size:$font-size;
+    background-color: $primary-color;
+    color:$secondary-color;
+    width: $box-width;
+    height: $box-height;
+    @include border-radius(10px);
+}
+
+

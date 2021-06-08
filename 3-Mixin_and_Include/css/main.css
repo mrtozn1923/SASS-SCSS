@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/*
+    Mixin programlama dillerindeki fonksiyonlara karşılık gelmektedir.
+
+*/
+.box {
+  font-size: 20px;
+  background-color: darkblue;
+  color: white;
+  width: 50%;
+  height: 200px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }

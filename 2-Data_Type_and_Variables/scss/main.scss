@@ -1,0 +1,18 @@
+/*
+    Veri Tipleri: Number, String, Boolean, Null
+    $degiskenadi şeklinde değişken tanımlaması yapılabilir.
+*/
+
+$primary-color:darkblue;
+$secondary-color:white;
+$font-size:20px;
+$box-width:50%;
+$box-height:200px;
+
+.box{
+    font-size:$font-size;
+    background-color: $primary-color;
+    color:$secondary-color;
+    width: $box-width;
+    height: $box-height;
+}

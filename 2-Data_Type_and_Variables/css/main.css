@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/*
+    Veri Tipleri: Number, String, Boolean, Null
+    $degiskenadi şeklinde değişken tanımlaması yapılabilir.
+*/
+.box {
+  font-size: 20px;
+  background-color: darkblue;
+  color: white;
+  width: 50%;
+  height: 200px; }

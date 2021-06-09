@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/*
+    Koşullu ifadeler birden fazla farklı durumu yönetmek için kullanılır.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+.bg-color-transition, .login-footer a:first-child, .signup a {
+  transition: background-color .3s; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: black; }
+
+.container {
+  width: 400px;
+  background-color: white;
+  border-radius: 3px;
+  padding: 30px;
+  margin-bottom: 30px; }
+
+.login-header {
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 30px; }
+
+.login-content {
+  display: flex;
+  flex-direction: column; }
+  .login-content input {
+    height: 50px;
+    padding: 0 20px;
+    border: 2px solid #dbdbdb;
+    margin-bottom: 20px; }
+
+.login-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .login-footer a {
+    color: black; }
+    .login-footer a:first-child {
+      background-color: black;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 3px; }
+      .login-footer a:first-child:hover {
+        background-color: royalblue; }
+    .login-footer a:last-child:hover {
+      text-decoration: underline; }
+
+.signup a {
+  display: block;
+  padding: 10px 20px;
+  background-color: royalblue;
+  color: white;
+  border-radius: 3px; }
+  .signup a:hover {
+    background-color: white;
+    color: black; }

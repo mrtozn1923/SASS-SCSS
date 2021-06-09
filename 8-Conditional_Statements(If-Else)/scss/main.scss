@@ -1,0 +1,107 @@
+/*
+    Koşullu ifadeler birden fazla farklı durumu yönetmek için kullanılır.
+*/
+$mode:"dark";
+$primary-color:royalblue;
+$secondary-color:black;
+$third-color:white;
+$primary-text-color:black;
+$secondary-text-color:white;
+$form-bg-color:white;
+$input-bg-color:white;
+
+
+@import 'reset.scss';
+.bg-color-transition{
+    transition: background-color .3s;
+}
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    @if ($mode == "light"){
+        background-color: $primary-color;
+    }
+    @else if ($mode == "dark"){
+        background-color: $secondary-color;
+    }
+    
+}
+.container{
+    width: 400px;
+    background-color: $form-bg-color;
+    border-radius: 3px;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+.login-header{
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.login-content{
+    display: flex;
+    flex-direction: column;
+    & input{
+        height: 50px;
+        padding: 0 20px;
+        border: 2px solid rgb(219,219,219);
+        margin-bottom: 20px;
+    }
+}
+
+.login-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & a{
+        color:$primary-text-color;
+        &:first-child{
+            @if ($mode == "light"){
+                background-color: $primary-color;
+            }
+            @else if ($mode == "dark"){
+                background-color: $secondary-color;
+            }
+            padding: 10px 20px;
+            color:$secondary-text-color;
+            border-radius: 3px;
+            @extend .bg-color-transition;
+            &:hover{
+                @if ($mode == "light"){
+                    background-color: $secondary-color;
+                }
+                @else if ($mode == "dark"){
+                    background-color: $primary-color;
+                }
+            }
+        }
+        &:last-child:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+.signup a{
+    display: block;
+    padding: 10px 20px;
+    @if ($mode == "light"){
+        background-color: $secondary-color;
+        color: $secondary-text-color;
+    }
+    @else if ($mode == "dark"){
+        background-color: $primary-color;
+        color: $secondary-text-color;
+    }
+    border-radius: 3px;
+    @extend .bg-color-transition;
+    &:hover{
+        background-color: $third-color;
+        color: $primary-text-color;
+    }
+}

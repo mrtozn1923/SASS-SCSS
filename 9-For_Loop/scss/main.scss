@@ -1,0 +1,12 @@
+/*
+    Tekrarlı işlemler için döngüler kullanılmaktadır.
+*/
+@import 'reset';
+
+@for $i from 1 through 6{
+    .display-#{$i}{
+        font-size: 32px - ($i*2);
+        margin: 20px 10px;
+        color: rgb(25+($i*20), 25+($i*20), 25+($i*20));
+    }
+}

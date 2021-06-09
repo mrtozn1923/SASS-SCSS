@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/*
+    Tekrarlı işlemler için döngüler kullanılmaktadır.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+.display-1 {
+  font-size: 30px;
+  margin: 20px 10px;
+  color: #2d2d2d; }
+
+.display-2 {
+  font-size: 28px;
+  margin: 20px 10px;
+  color: #414141; }
+
+.display-3 {
+  font-size: 26px;
+  margin: 20px 10px;
+  color: #555555; }
+
+.display-4 {
+  font-size: 24px;
+  margin: 20px 10px;
+  color: dimgray; }
+
+.display-5 {
+  font-size: 22px;
+  margin: 20px 10px;
+  color: #7d7d7d; }
+
+.display-6 {
+  font-size: 20px;
+  margin: 20px 10px;
+  color: #919191; }

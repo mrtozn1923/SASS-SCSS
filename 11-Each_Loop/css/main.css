@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/*
+    Each ile döngüler dizi elemanlarına göre gerçekleştirilebilir.
+    For döngüsünde dizi uzunluk bilgisine göre biz işlem yapıyorduk ancak
+    each ile bu işlemler otomatik hale getiriliyor.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+.f-16 {
+  font-size: 16px; }
+
+.f-18 {
+  font-size: 18px; }
+
+.f-24 {
+  font-size: 24px; }
+
+.f-32 {
+  font-size: 32px; }
+
+.f-36 {
+  font-size: 36px; }
+
+.f-48 {
+  font-size: 48px; }
+
+.ml-10 {
+  margin-left: 10px; }
+
+.ml-15 {
+  margin-left: 15px; }
+
+.ml-20 {
+  margin-left: 20px; }
+
+.ml-25 {
+  margin-left: 25px; }
+
+.ml-30 {
+  margin-left: 30px; }
+
+.ml-35 {
+  margin-left: 35px; }

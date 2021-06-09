@@ -1,0 +1,20 @@
+/*
+    Each ile döngüler dizi elemanlarına göre gerçekleştirilebilir.
+    For döngüsünde dizi uzunluk bilgisine göre biz işlem yapıyorduk ancak
+    each ile bu işlemler otomatik hale getiriliyor.
+*/
+@import 'reset';
+$font-sizes: 16,18,24,32,36,48;
+$margin-left:10,15,20,25,30,35;
+
+@each $font-size in $font-sizes {
+    .f-#{$font-size}{
+        font-size:$font-size+px;
+    }
+}
+
+@each $ml in $margin-left {
+    .ml-#{$ml}{
+        margin-left:$ml+px;
+    }
+}

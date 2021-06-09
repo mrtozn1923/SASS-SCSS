@@ -1,8 +1,16 @@
 @charset "UTF-8";
 /*
     extend: ortak özellikleri bir yerde tanımlayıp kullanmak için vardır.
+    % ile yeni bir sınıf oluşturmadan ortak özellikleri içeren sınıflar bir araya toplanabilir.
+    Aynı özellik ismi ile başlayan yapılar daha kısa bir şekilde ifade edilebilir.
+    font:{
+        size:10px;
+        family:'Arial','sans-serif';
+        style:normal;
+        weight:bold;
+    }
 */
-.bg-color-transition, .login-footer a:first-child, .signup a {
+.login-footer a:first-child, .signup a {
   transition: background-color .3s; }
 
 * {

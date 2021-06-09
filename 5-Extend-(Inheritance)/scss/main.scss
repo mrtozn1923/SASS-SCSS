@@ -1,7 +1,15 @@
 /*
     extend: ortak özellikleri bir yerde tanımlayıp kullanmak için vardır.
+    % ile yeni bir sınıf oluşturmadan ortak özellikleri içeren sınıflar bir araya toplanabilir.
+    Aynı özellik ismi ile başlayan yapılar daha kısa bir şekilde ifade edilebilir.
+    font:{
+        size:10px;
+        family:'Arial','sans-serif';
+        style:normal;
+        weight:bold;
+    }
 */
-.bg-color-transition{
+%bg-color-transition{
     transition: background-color .3s;
 }
 
@@ -59,7 +67,7 @@ body{
             padding: 10px 20px;
             color:white;
             border-radius: 3px;
-            @extend .bg-color-transition;
+            @extend %bg-color-transition;
             &:hover{
                 background-color: black;
             }
@@ -76,7 +84,7 @@ body{
     padding: 10px 20px;
     background-color: black;
     border-radius: 3px;
-    @extend .bg-color-transition;
+    @extend %bg-color-transition;
     &:hover{
         background-color: white;
         color: black;

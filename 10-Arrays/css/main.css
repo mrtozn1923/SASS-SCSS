@@ -1,0 +1,28 @@
+@charset "UTF-8";
+/*
+    Diziler içerisinde çoklu elemanlar saklanabilir. Bu elemanlar
+    üzerinde de döngüler ile dolaşılarak istenilen işlemler gerçekleştirilebilir.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+.display-1 {
+  font-size: 30px;
+  margin: 20px 10px;
+  color: blue; }
+
+.display-2 {
+  font-size: 28px;
+  margin: 20px 10px;
+  color: red; }
+
+.display-3 {
+  font-size: 26px;
+  margin: 20px 10px;
+  color: green; }

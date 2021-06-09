@@ -1,0 +1,19 @@
+/*
+    While ile koşul sağlanmadığı zaman döngü sonlandırılır. Herhangi bir 
+    bitiş değeri döngü üzerinde bildirilmez. Mevcut bir değere göre
+    karşılaştırma yapılır.
+*/
+@import 'reset';
+
+$i:8;
+$size:5;
+
+@while $i>0 {
+    $computedSize:$i*5;
+    .f-#{$computedSize}{
+        font-size: $size*$i+px;
+    }
+    $i:$i - 1;
+}
+
+

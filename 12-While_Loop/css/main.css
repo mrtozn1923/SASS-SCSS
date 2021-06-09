@@ -1,0 +1,38 @@
+@charset "UTF-8";
+/*
+    While ile koşul sağlanmadığı zaman döngü sonlandırılır. Herhangi bir 
+    bitiş değeri döngü üzerinde bildirilmez. Mevcut bir değere göre
+    karşılaştırma yapılır.
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+.f-40 {
+  font-size: 40px; }
+
+.f-35 {
+  font-size: 35px; }
+
+.f-30 {
+  font-size: 30px; }
+
+.f-25 {
+  font-size: 25px; }
+
+.f-20 {
+  font-size: 20px; }
+
+.f-15 {
+  font-size: 15px; }
+
+.f-10 {
+  font-size: 10px; }
+
+.f-5 {
+  font-size: 5px; }

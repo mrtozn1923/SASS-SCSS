@@ -3,6 +3,7 @@
 */
 @import 'reset';
 
+// @for $i from 1 to 6{ //to dahil etmez
 @for $i from 1 through 6{
     .display-#{$i}{
         font-size: 32px - ($i*2);

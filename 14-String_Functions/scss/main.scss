@@ -1,0 +1,20 @@
+/*
+    quote() ->çift tırnak eklemek için kullanılır.
+    unquote() ->çift tırnak kaldır
+    str-index() ->varsa index numarası döndürür yoksa null
+    str-insert() ->index numarasına göre veri ekleme
+    str-length() ->string uzunluğunu verir
+    str-slice() ->index numarasına göre parçalama işlemi
+    to-upper-case() ->hepsini büyük harf yapma
+    to-lower-case() ->hepsini küçük harf yapma
+    unique-id() ->benzersiz bir id oluşturma
+*/
+@import 'reset';
+
+.text{
+    font-family:quote(Arial);
+    font-size:28px;
+    font-#{unquote("style")}:normal;
+    font-weight:bold;
+    border:round(1.7px) solid black;
+}

@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/*
+    Mixin yapılarıda aslında fonksiyon mantığındadır ancak SASS üzerinde
+    değer döndürebildiğimiz gerçek fonksiyon yapılarıda bulunmaktadır.
+
+    SASS içerisinde özel tanımlı fonksiyonlarda bulunmaktadır.
+    abs(-32)=32 ->mutlak değer
+    ceil(1.2px)=2px ->yukarı yuvarla
+    floor(1.6px)=1px ->aşağı yuvarla
+    round(1.4px)=1px ->.5 ve üzerini yukarı altını aşağı yuvarla
+    percentage(0.2)=20% ->yüzdesel gösterim
+    max(4px,20px)=20px ->maksimum değeri al
+    max($paddings...) ->bir dizi içerisiden maksimum değeri al
+    min(4px,20px)=4px ->minimum değeri al
+    min($margins...) ->bir dizi içerisinden minimum değeri al
+    -Bir değerin birimsiz olup olmadığını kontrol etmek için unitless kullanılır.
+    @if unitless(10px){
+        padding:min($paddings...);
+    }@else{
+        padding:max($paddings...);
+    }
+    comparable(2px,3px)=true ->uyumlu yani karşılaştırılabilir birimleri kontrol etmek için kullanılır ve true/false döndürür
+    random()->rastgele sayı üretmek için kullanılır
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+.f-5 {
+  font-size: 5px; }
+
+.f-10 {
+  font-size: 10px; }
+
+.f-15 {
+  font-size: 15px; }
+
+.f-20 {
+  font-size: 20px; }
+
+.f-25 {
+  font-size: 25px; }
+
+.f-30 {
+  font-size: 30px; }
+
+.f-35 {
+  font-size: 35px; }
+
+.f-40 {
+  font-size: 40px; }

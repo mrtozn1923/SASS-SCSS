@@ -1,0 +1,20 @@
+/*
+    grayscale() ->gri renk tonu elde etmek için kullanılır
+    complement() ->tamamlayıcı renk değerini verir.
+    invert() ->zıt renk değerini verir.
+    red(), green(), blue() mevcut renk içerisindeki her rengin değerini verir.
+    hue(), saturation(), lightness() hsl renk değerleri tek tek verir.
+    alpha() renk içerisindeki opacity değerini verir
+    opacity() opacity değerini verir
+    mix() renkleri karıştırmak için kullanılır
+    change-color() mevcut rengi istenilen renk ile değiştirir
+    ligthen(red,2) rengi açmak için kullanılır
+    darken(red,1) rengi koyulaştırmak için kullanılır
+*/
+@import 'reset';
+
+.text{
+    // color:grayscale(#8f69ff);
+    // color:complement(#8f69ff);
+    color:mix(red,blue,50%); //%50 oranında iki rengi karıştırır.
+}

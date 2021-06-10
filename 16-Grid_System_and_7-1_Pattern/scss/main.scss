@@ -1,0 +1,31 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/functions";
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'components/buttons';
+@import 'components/carousel';
+@import 'components/dropdown';
+
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/sidebar';
+@import 'layout/forms';
+@import 'layout/footer';
+
+@import 'themes/theme';
+@import 'themes/admin';
+@import 'themes/darktheme';
+
+@import 'vendors/bootstrap';
+
+@import 'pages/home';
+@import 'pages/aboutus';
+@import 'pages/contact';
+
+
+
+
+

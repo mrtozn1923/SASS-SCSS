@@ -44,7 +44,7 @@ sass/
 |   |– _bootstrap.scss    # Bootstrap
 |
 |– base/
-|   |– _normalize.scss        # Reset/normalize
+|   |– _normalize.scss    # Reset/normalize
 |   |– _typography.scss   # Typography rules
 |
 |– layout/

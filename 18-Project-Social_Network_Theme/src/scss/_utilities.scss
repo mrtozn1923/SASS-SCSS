@@ -1,0 +1,69 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+//Container
+.container{
+    max-width: $max-width;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+}
+
+//Text Styles
+.x-large{
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom:1rem; 
+}
+.lead{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.text-primary{
+    color:$primary-color;
+}
+.round-img{
+    border-radius: 50%;
+}
+
+.line{
+    height: 1px;
+    background: #ccc;
+    margin: 1.5rem 0;
+}
+
+//margin & padding
+@each $space in $spaceamounts {
+    //All around margin
+    .m-#{$space}{
+        margin:#{$space}rem;
+    }
+    //vertical margin
+    .my-#{$space}{
+        margin:#{$space}rem 0;
+    }
+    //All around padding
+    .p-#{$space}{
+        padding:#{$space}rem;
+    }
+    //vertical padding
+    .py-#{$space}{
+        padding:#{$space}rem 0;
+    }
+}
+
+//Background Colors
+@include bg-colors($colors);
+
+.dark-overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+}
+

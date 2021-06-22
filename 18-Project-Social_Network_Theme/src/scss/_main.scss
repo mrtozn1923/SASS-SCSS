@@ -1,0 +1,20 @@
+//Bu kısım direkt olarak use ile index.scss dosyasında dahil edilebilir. Ancak @forward kullanımına örnek olması açısından ekledim.
+//@use ile sayfaya sadece ihtiyaç duyguğumuz dosyaları dahil ederiz. Ancak çoklu dosya dahil etme işlemlerini birkaç yerde gerçekleştirmiş olabiliriz. Bu nedenle hepsinde tek tek dahil etmek yerine tek bir noktada @forward ile dahil edip ana dosyayı yani main.scss dosyasını @use ile kullanabiliriz. Bu işlemi index.scss dosyasında gerçekleştiriyoruz.
+//Eğer 7-1 Sass Arcitecture kullanırsanız orada her bir klasörde bu birleştirme işlemi gerçekleştirilebilir.
+//import anahtar kelimesi sass tarafında kullanılması tercih edilmemektedir. Bu anahtar kelime ile ne var ne yok tüm dosya içeriğini ilgili sayfaya eklemiş oluyoruz. Ancak @use ile sadece istediğimiz değişkenleri vs. ekleyebiliriz.
+//Use için birden fazla kullanım bulunmaktadır.
+
+//@use 'dosyaAdi' şeklindeki kullanımda değişkenlere erişmek için dosyaAdi.degiskenAdi erişebiliriz.
+//@use 'dosyaAdi' as dAdi şeklindeki kullanımda değişkenlere erişmek için dAdi.degiskenAdi olarak erişebilir.z
+//@use 'dosyaAdi' as * ile tüm dosya içeriğini mevcut isimleri ile birlikte kullanabiliriz. Herhangi bir ön ek eklemeye gerek kalmayacaktır.
+
+@forward 'normalize';
+@forward 'typography';
+@forward 'utilities';
+@forward 'forms';
+@forward 'components';
+@forward 'pages';
+@forward 'mobile';
+
+//Yukarıda dikkat ederseniz functions,mixins,variables dahil edilmemiştir. Çünkü mevcut içerikleri gerekli olanlar yerde diğer dosyalara dahil edilmiştir. Bu dosyaların ayrıca dahil edilip birleştirilmiş css dosyasına çıkartılmasına gerek yoktur. Sadece asıl css dosyasını oluşturacak parçaların ana dizine eklenmesi yeterli olacaktır.
+//HTML tarafında direkt olarak kullandığımız utility sınıflar css dosyasında olması gerektiği için ve herhangi bir şekilde scss dosyalarında kullanılmadığı için ana dosyaya dahil edilip derlenmesi sağlanmalıdır. Eğer çıktı dosyası olan main.css dosyasında utility sınıfları olmazsa HTML tarafında kullanmış olduğumu "my-1" gibi yardımcı sınıflara erişememiş oluruz.

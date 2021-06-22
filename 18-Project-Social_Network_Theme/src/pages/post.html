@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Welcome to the DevConnector</title>
+</head>
+
+<body>
+  <nav class="navbar bg-dark">
+    <h1>
+        <a href="index.html">
+            <i class="fas fa-code"></i> DevConnector
+        </a>
+    </h1>
+    <ul>
+        <li><a href="profiles.html">Developers</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="posts.html">Posts</a></li>
+        <li>
+            <a href="dashboard.html">
+                <i class="fas fa-user"></i>
+                <span class="hide-sm"> Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a href="login.html">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="hide-sm"> Logout</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+    <section class="container">
+        <a href="posts.html" class="btn">Back To Posts</a>
+        <div class="post bg-white p-1 my-1">
+          <div>
+            <a href="profile.html">
+              <img class="round-img my-1" src="<%= require('../images/avatar.jpg') %>" alt="avatar">
+              <h4>Mert Özen</h4>
+            </a>
+          </div>
+          <div>
+            <p class="my-1">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+              possimus corporis sunt necessitatibus! Minus nesciunt soluta
+              suscipit nobis. Amet accusamus distinctio cupiditate blanditiis
+              dolor? Illo perferendis eveniet cum cupiditate aliquam?
+            </p>
+          </div>
+        </div>
+  
+        <div class="post-form">
+          <div class="post-form-header bg-primary">
+            <h3>Leave A Comment</h3>
+          </div>
+          <form class="form my-1">
+            <textarea
+              name="text"
+              cols="30"
+              rows="5"
+              placeholder="Comment on this post"
+            ></textarea>
+            <input type="submit" class="btn btn-dark my-1" value="Submit" />
+          </form>
+        </div>
+  
+        <div class="posts">
+          <div class="post bg-white p-1 my-1">
+            <div>
+              <a href="profile.html">
+                <img class="round-img my-1" src="<%= require('../images/avatar.jpg') %>" alt="avatar">
+                <h4>Mert Özen</h4>
+              </a>
+            </div>
+            <div>
+              <p class="my-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+                possimus corporis sunt necessitatibus! Minus nesciunt soluta
+                suscipit nobis. Amet accusamus distinctio cupiditate blanditiis
+                dolor? Illo perferendis eveniet cum cupiditate aliquam?
+              </p>
+            </div>
+          </div>
+  
+          <div class="post bg-white p-1 my-1">
+            <div>
+              <a href="profile.html">
+                <img class="round-img my-1" src="<%= require('../images/avatar.jpg') %>" alt="avatar">
+                <h4>Mert Özen</h4>
+              </a>
+            </div>
+            <div>
+              <p class="my-1">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+                possimus corporis sunt necessitatibus! Minus nesciunt soluta
+                suscipit nobis. Amet accusamus distinctio cupiditate blanditiis
+                dolor? Illo perferendis eveniet cum cupiditate aliquam?
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+</body>
+
+</html>

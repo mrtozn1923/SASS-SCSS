@@ -1,0 +1,1 @@
+console.log("Tebrikler başarıyla çalıştırdınız...");

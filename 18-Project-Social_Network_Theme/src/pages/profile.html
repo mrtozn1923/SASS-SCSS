@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Welcome to the DevConnector</title>
+</head>
+
+<body>
+    <nav class="navbar bg-dark">
+        <h1>
+            <a href="index.html">
+                <i class="fas fa-code"></i> DevConnector
+            </a>
+        </h1>
+        <ul>
+            <li><a href="profiles.html">Developers</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="posts.html">Posts</a></li>
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-user"></i>
+                    <span class="hide-sm"> Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="login.html">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="hide-sm"> Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <section class="container">
+        <a href="profiles.html" class="btn">Back To Profiles</a>
+
+        <div class="profile-grid my-1">
+            <div class="profile-top bg-primary p-2">
+                <img class="round-img my-1" src="<%= require('../images/avatar.jpg') %>" alt="avatar">
+                <h1 class="large">Mert Özen</h1>
+                <p class="lead">Developer at Ozen Software</p>
+                <p>Istanbul,Turkey</p>
+                <div class="icons my-1">
+                    <a href="#">
+                        <i class="fas fa-globe fa-2x"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-twitter fa-2x"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- About -->
+            <div class="profile-about bg-light p-2">
+                <h2 class="text-primary">Mert's Bio</h2>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit tempora, aspernatur unde temporibus perspiciatis voluptate cum? Voluptas distinctio aut nihil, iste asperiores at sint! Commodi, nisi. Tempore nisi quam itaque?
+                </p>
+                <div class="line"></div>
+                <h2 class="text-primary">Skill Set</h2>
+                <div class="skills">
+                    <div class="p-1">
+                        <i class="fas fa-check"></i>HTML
+                    </div>
+                    <div class="p-1">
+                        <i class="fas fa-check"></i>CSS
+                    </div>
+                    <div class="p-1">
+                        <i class="fas fa-check"></i>Javascript
+                    </div>
+                    <div class="p-1">
+                        <i class="fas fa-check"></i>NodeJS
+                    </div>
+                </div>
+            </div>
+            <!-- Expreience -->
+            <div class="profile-exp bg-white p-2">
+                <h2 class="text-primary">Expreiences</h2>
+                <div class="my-1">
+                    <h3>Ozen Software</h3>
+                    <p>Oct 2019 - Current</p>
+                    <p><strong>Position: </strong>Senior Developer</p>
+                    <p>
+                        <strong>Description: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum omnis incidunt nisi eum harum accusamus aperiam, at tenetur temporibus.
+                    </p>
+                </div>
+                <div class="my-1">
+                    <h3>Aselsan</h3>
+                    <p>Nov 2018 - Oct 2019</p>
+                    <p><strong>Position: </strong>Junior Developer</p>
+                    <p>
+                        <strong>Description: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum omnis incidunt nisi eum harum accusamus aperiam, at tenetur temporibus.
+                    </p>
+                </div>
+            </div>
+            <!-- Education -->
+            <div class="profile-edu bg-white p-2">
+                <h2 class="text-primary">Education</h2>
+                <div class="my-1">
+                    <h3>University Of Duzce</h3>
+                    <p>Sep 2013 - July 2017</p>
+                    <p><strong>Degree: </strong>Bachelors Of Degree</p>
+                    <p><strong>Department: </strong>Computer Science</p>
+                    <p>
+                        <strong>Description: </strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum omnis incidunt nisi eum harum accusamus aperiam, at tenetur temporibus.
+                    </p>
+                </div>
+            </div>
+            <!-- Github Repos -->
+            <div class="profile-github">
+                <h2 class="text-primary my-1">
+                    <i class="fab fa-github"></i> Github Repos
+                </h2>
+                <div class="repo bg-white my-1 p-1">
+                    <div>
+                        <h4><a href="#">Repo One</a></h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quis.</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="badge badge-primary">Stars: 50</li>
+                            <li class="badge badge-dark">Watchers: 30</li>
+                            <li class="badge badge-light">Forks:30</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="repo bg-white my-1 p-1">
+                    <div>
+                        <h4><a href="#">Repo Two</a></h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quis.</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="badge badge-primary">Stars: 50</li>
+                            <li class="badge badge-dark">Watchers: 30</li>
+                            <li class="badge badge-light">Forks:30</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="repo bg-white my-1 p-1">
+                    <div>
+                        <h4><a href="#">Repo Three</a></h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, quis.</p>
+                    </div>
+                    <div>
+                        <ul>
+                            <li class="badge badge-primary">Stars: 50</li>
+                            <li class="badge badge-dark">Watchers: 30</li>
+                            <li class="badge badge-light">Forks:30</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

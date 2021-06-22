@@ -1,0 +1,15 @@
+@use 'functions' as *;
+
+//set background & text color
+@mixin set-background($color){
+    background-color: $color;
+    color:set-text-color($color);
+}
+
+@mixin bg-colors($colors){
+    @each $color, $value in $colors {
+        .bg-#{$color}{
+            @include set-background($value);
+        }
+    }
+}

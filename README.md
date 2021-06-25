@@ -34,7 +34,7 @@ body {
   font-size: $fontsize;
 }
 ```
-## 7-1 Sass Architecture
+## 7-1 SASSS ARCHITECTURE
 
 ```
 sass/
@@ -89,7 +89,56 @@ sass/
 
 `Vendors:` Projemizde kullandığımız tüm üçüncü taraf stil sayfalarını içerir. Örneğin, Bootstrap için hazırlanan scss dosyasını burada dahil edebiliriz.
 
-## Önemli Konular
+## TÜRKÇE DOKÜMANTASYON
+Bu dokümantasyon 25.06.2021 tarihinde Mert Özen tarafından Türkçeleştirilmiştir.
+- [Variables](#variables)
+    - [Default Flag](#default-flag)
+    - [Scope](#scope)
+    - [Shadowing](#shadowing)
+- [Lists](#lists)
+    - [Access an Element](#access-an-element)
+    - [Add to List](#add-to-list)
+    - [Find an Element in a List](#find-an-element-in-a-list)
+- [Maps](#maps)
+    - [Look Up a Value](#look-up-a-value)
+    - [@each loop](#each-loop)
+    - [Add to a Map](#add-to-a-map)
+    - [Argument Lists](#argument-lists)
+- [Booleans](#booleans)
+- [Null](#null)
+- [Interpolation](#interpolation)
+- [Style Rules](#style-rules)
+    - [Selector Lists](#selector-lists)
+    - [Selector Combinators](#selector-combinators)
+    - [Nesting Property](#nesting-property)
+    - [Parent Selector(&)](#parent-selector)
+    - [Placeholder Selectors(%)](#placeholder-selectors)
+- [Mixin and Include](#mixin-and-include)
+    - [Arguments](#arguments)
+    - [Content Blocks](#content-blocks)
+- [Function](#function)
+    - [Optional Arguments](#optional-arguments)
+- [Flow Control](#flow-control)
+    - [Conditional Statements](#conditional-statements)
+    - [Loops](#loops)
+- [Inheritance(@extend)](#inheritance)
+    - [Placeholder Selectors(%)](#placeholder-selectors)
+- [Modules](#modules)
+    - [@import](#import)
+      - [Index Files](#index-files)
+      - [Nesting and Interpolation](#nesting-and-interpolation)
+    - [@use](#use)
+      - [Choosing a Namespace](#choosing-a-namespace)
+      - [Private Members](#private-members)
+      - [Mixin Configure](#mixin-configure)
+    - [@forward](#forward)
+      - [Adding a Prefix](#adding-a-prefix)
+      - [Controlling Visibility](#controlling-visibility)
+      - [Configuring Modules](#configuring-modules)
+- [Rules to help you prepare a library](#rules-to-help-you-prepare-a-library)
+  - [@debug](#debug)
+  - [@warn](#warn)
+  - [@error](#error)
 
 ### Variables
 - Değişkenler `$` işareti ile bildirilirler. Değişkenler tek bir yerden kontrol edilebilirler bu sayede hızlı değişiklikler yapabiliriz.
@@ -110,7 +159,13 @@ $border-dark: rgba($base-color, 0.88);
 
 `NOT:` `SASS` değişkenleri ile `CSS` değişkenleri farklıdır. CSS değişkenleri `--` ile bildirilirler. `SASS` değişkenleri farklı bir yerde bir daha tanımlandığı zaman önceki değeri değiştirilmez sadece tekrar tanımlandığı yerden itibaren değişiklikler geçerli olur. `CSS'te` bir daha tanımlanıp içeriği değiştirilirse kullanıldığı her yerde içerik değişir. Ayrıca `SASS` değişkenleri derlenene kadar geçerlidir. `CSS` değişkenleri derleme yapıldıktan sonrada geçerlidir.
 
-#### Default Values(!default)
+`NOT:` SASS geçmişe yönelik destek için isimlendirmelerde `-` ve `_` aynı görmektedir. Aşağıdaki isimlendirmelerin ikiside aynı anlama gelmektedir.
+```scss
+$color-list
+$color_list
+```
+
+#### Default Flag
 Kullanıcıların kütüphanenizdeki değişkenleri kullandıkları yerde değiştirebilmelerine izin vermek için `!default` anahtar kelimesi eklenmelidir. Bu sayede değişken başka nerede kullanıldıysa otomatik olarak tamamı yeni atanan değer ile değiştirilecektir. Bunun açıklamasını yukarıdaki notta ifade ettik. Kısacası eğer bir değer atanmaz ise `!default` anahtar kelimesi ile birlikte bildirilen değer atanır.
 ```scss
   // _library.scss
@@ -441,7 +496,7 @@ Eğer anahtar kelimelere direkt olarak ihtiyacınız varsa `meta.keyword($args)`
 ```
 Yukarıdaki örneklerde `operatör` ve `math` sınıfına ait bazı kullanımlar bulunmaktadır. Bunlar basit konular olduğu için çok üstünde durmuyorum. 
 
-> (SASS Dokümantasyonu-Operatörler)[https://sass-lang.com/documentation/operators]
+> [SASS Dokümantasyonu-Operatörler](https://sass-lang.com/documentation/operators)
 
 ### Null
 Bir değerin yokluğunu temsil eder ve genellikle bir sonucun olmadığını belirtmek için fonksiyonlar tarafından döndürülür. Boolean değer olarak `false` olarak tanımlanmaktadır.
@@ -783,7 +838,7 @@ Ortak bir değer verip daha sonra değiştirme işlemide gerçekleştirilebilir.
     display: block;
   }
 ```
-- Parent seçiciyi bir `@mixin` içerisinde kullanabilmekte mümkün. Bu işlem için `unify` fonksiyonu kullanılabilir. Tabi burada daha önce görmediğimiz `@at-root` ve `@content` ifadeleri bulunmaktadır. Bunları göz ardı ediniz.
+- Parent seçiciyi bir `@mixin` içerisinde kullanabilmekte mümkün. Bu işlem için `unify` fonksiyonu kullanılabilir. Tabi burada daha önce görmediğimiz `@at-root` ve `@content` ifadeleri bulunmaktadır. `@content` ifadesi mixinin kullanıldığı yerde block içerisine yazılan değerleri olduğu gibi aktarmak için kullanılır. `@at-root` ise standart iç içe geçmiş yapılanma yerine belgesinin kökünde CSS çıktısının oluşturulmasını sağlar.
 
 ```scss
   @use "sass:selector";
@@ -855,3 +910,1087 @@ Yer tutucular CSS çıktılarına dahil edilmezler. Bu özellik en çok kalıtı
     color: #cddc39;
   }
 ```
+### Mixin and Include
+Tekrarlı kod parçacıklarınızı veya belirli bir amaca hizmet eden kod şablonlarınızı tekrar tekrar yazmanıza gereken kalmadan dahil etmenizi sağlayan yapılar oluşturmak için `@mixin` ve `@include` kurallarını kullanabilirisiniz.
+
+İçerisinde karar yapıları, döngüler, css kodları vb. kullanılabilir. Fonksiyonlardan farkı geriye bir değer döndürmezler. Kod bloğunu olduğu gibi eklerler. Ayrıca parametrede alabilirler.
+
+```scss
+  @mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @mixin horizontal-list {
+    @include reset-list;
+
+    li {
+      display: inline-block;
+      margin: {
+        left: -2px;
+        right: 2em;
+      }
+    }
+  }
+
+nav ul {
+  @include horizontal-list;
+}
+```
+
+```css
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  nav ul li {
+    display: inline-block;
+    margin-left: -2px;
+    margin-right: 2em;
+  }
+```
+#### Arguments
+- Mixin'ler, her çağrıldıklarında davranışlarının özelleştirilmesine olanak tanıyan bağımsız değişkenler de alabilir.
+```scss
+  @mixin rtl($property, $ltr-value, $rtl-value) {
+    #{$property}: $ltr-value;
+
+    [dir=rtl] & {
+      #{$property}: $rtl-value;
+    }
+  }
+
+  .sidebar {
+    @include rtl(float, left, right);
+  }
+```
+
+```css
+  .sidebar {
+    float: left;
+  }
+  [dir=rtl] .sidebar {
+    float: right;
+  }
+```
+- Eğer parametreleri isteğe bağlı olarak bildirmek veya girilmediğinde varsayılan bir değer atamak istiyorsanız. Aşağıdaki gibi `$variable:default-value` şeklinde bildirim yapabilirsiniz.
+```scss
+  @mixin replace-text($image, $x: 50%, $y: 50%) {
+    text-indent: -99999em;
+    overflow: hidden;
+    text-align: left;
+
+    background: {
+      image: $image;
+      repeat: no-repeat;
+      position: $x $y;
+    }
+  }
+
+  .mail-icon {
+    @include replace-text(url("/images/mail.svg"), 0);
+  }
+```
+
+```css
+  .mail-icon {
+    text-indent: -99999em;
+    overflow: hidden;
+    text-align: left;
+    background-image: url("/images/mail.svg");
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+  }
+```
+- Eğer isteğe bağlı argüman sayısı fazlaysa tek tek sırayı gözeterek işlem yapmak yerine direkt olarak argüman adını değeriyle birlikte gönderebilirsiniz.
+```scss
+  @mixin square($size, $radius: 0) {
+    width: $size;
+    height: $size;
+
+    @if $radius != 0 {
+      border-radius: $radius;
+    }
+  }
+
+  .avatar {
+    @include square(100px, $radius: 4px);
+  }
+```
+
+```css
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+  }
+```
+- Eğer çoklu değer şeklinde yani bir liste olarak argüman almak isterseniz bunu `...` ile bildirebilirsiniz. Yalnız buradaki sıralamaya dikkat etmelisiniz. Çoklu argünman alma işlemi `@mixin` üzerinde en sonda olmalıdır.
+
+```scss
+@mixin order($height, $selectors...) {
+  @for $i from 0 to length($selectors) {
+    #{nth($selectors, $i + 1)} {
+      position: absolute;
+      height: $height;
+      margin-top: $i * $height;
+    }
+  }
+}
+
+@include order(150px, "input.name", "input.address", "input.zip");
+```
+
+```css
+  input.name {
+    position: absolute;
+    height: 150px;
+    margin-top: 0px;
+  }
+
+  input.address {
+    position: absolute;
+    height: 150px;
+    margin-top: 150px;
+  }
+
+  input.zip {
+    position: absolute;
+    height: 150px;
+    margin-top: 300px;
+  }
+```
+
+- Daha önce ifade ettiğim gibi eğer değişkenlerden oluşan bir liste argüman olarak geliyorsa ve sizinde `$` olmadan sadece isimlerine ihtiyacınız varsa `meta.keywords($args)` fonksiyonu kullanılabilir.
+
+```scss
+  @use "sass:meta";
+
+  @mixin syntax-colors($args...) {
+    @debug meta.keywords($args);
+    // (string: #080, comment: #800, variable: #60b)
+
+    @each $name, $color in meta.keywords($args) {
+      pre span.stx-#{$name} {
+        color: $color;
+      }
+    }
+  }
+
+  @include syntax-colors(
+    $string: #080,
+    $comment: #800,
+    $variable: #60b,
+  )
+```
+
+```css
+  pre span.stx-string {
+    color: #080;
+  }
+
+  pre span.stx-comment {
+    color: #800;
+  }
+
+  pre span.stx-variable {
+    color: #60b;
+  }
+```
+#### Content Blocks
+Bir mixin, argümanları almaya ek olarak, içerik bloğu olarak bilinen bir stil bloğunun tamamını alabilir.
+Bir mixin, gövdesine `@content` kuralı ekleyerek bir içerik bloğu aldığını bildirebilir. İçerik bloğu, Sass'taki diğer bloklar gibi küme parantezleri kullanılarak iletilir ve `@content` kuralının yerine enjekte edilir.
+
+```scss
+  @mixin hover {
+    &:not([disabled]):hover {
+      @content;
+    }
+  }
+
+  .button {
+    border: 1px solid black;
+    @include hover {
+      border-width: 2px;
+    }
+  }
+```
+
+```css
+  .button {
+    border: 1px solid black;
+  }
+  .button:not([disabled]):hover {
+    border-width: 2px;
+  }
+```
+
+`NOT:`Bir mixin, birden çok `@content` kuralı içerebilir. Varsa, içerik bloğu her bir @içerik için ayrı olarak eklenir.
+
+### Function
+Fonksiyonlar `@function` kuralı ile tanımlanır. Mixinler olduğu yerde genişletilirken fonksiyonlar tarafında geri döndürülen değere göre işlem yapılır. Aşağıda parametreli bir fonksiyon örneği verilmiştir. Bu fonksiyon işlemi tamamladığında değer döndürme işlemini `@return` kuralı ile gerçekleştirmekteyiz.
+
+Fonksiyonlar değerleri hesaplamak üzere kurgulanmış yapılardır. Yani mixinler fonksiyonları kullanarak kabiliyetlerini arttırırlar. Tabi fonksiyon içerisinde mixin kullanarakta işlem yapılabilir.
+
+```scss
+  @function pow($base, $exponent) {
+    $result: 1;
+    @for $_ from 1 through $exponent {
+      $result: $result * $base;
+    }
+    @return $result;
+  }
+
+  .sidebar {
+    float: left;
+    margin-left: pow(4, 3) * 1px;
+  }
+```
+
+```css
+  .sidebar {
+    float: left;
+    margin-left: 64px;
+  }
+```
+
+`NOT:` SASS tarafında işlerimizi kolaylaştıran `built-in` fonksiyonlar bulunmaktadır. Bunları tek tek anlatmak burada mantıksız olacaktır. Kendi dokümantasyonunda İngilizce bilmesenizde rahatlıkla anlayabileceğiniz ölçüde örnekleri bulunmaktadır. Bunlara sadece bir göz gezdirmeniz yeterli olacaktır. İhtiyacınız olduğu zaman tekrar bir tarama yapabilirsiniz. Bunları kesinlikle ezberlemek zorunda değilsiniz.
+
+> (SASS Dokümantasyonu-Built-In Modules)[https://sass-lang.com/documentation/modules]
+
+#### Optional Arguments
+Aşağıda örnek bir `built-in` fonksiyon olan `mix` ile opsiyonel argüman kullanıımı bulunmaktadır. Seçimlik parametre kullanımını daha önce ifade etmiştim. Bu aynı zamanda varsayılan değer ataması olarakta ifade edilmektedir. Aşağıdaki örnekte `$amount:100%` ile varsayılan bir değer ataması yapılmıştır. Eğer buraya parametre gönderilirse `100%` geçersiz kılınacaktır.
+
+```scss
+  @function invert($color, $amount: 100%) {
+    $inverse: change-color($color, $hue: hue($color) + 180);
+    @return mix($inverse, $color, $amount);
+  }
+
+  $primary-color: #036;
+  .header {
+    background-color: invert($primary-color, 80%);
+  }
+```
+
+```css
+  .header {
+    background-color: #523314;
+  }
+```
+
+`NOT:` Argümanların isimlere göre atanabileceğini `@mixin` kullanımında da ifade etmiştim. Yine fonksiyonlarda da bu işlem mümkündür.
+
+`NOT:` Çoklu parametre almak için yani liste olarak almak için `@mixin` kullanımında olduğu gibi `...` kullanılabilir.
+
+`NOT:` Mixin için kullanmış olduğumuz harita kullanımında değişkenlerin adlarına erişmek için `meta.keywords()` fonksiyonunu yine fonksiyonlarla birlikte argüman olarak kullanabiliriz.
+
+### Flow Control
+Aslında burası en kolay kısım zaten bir programlama dili hakkında bilginiz varsa bunları bildiğinizi düşünerek sonlara atma ihtiyacı duydum. Eğer bilmediğiniz yerler varsa ve detay bilgi gerekliyse burada hepsine değineceğim.
+
+#### Conditional Statements
+Koşullu ifadeler olarak bilinen `@if`, `@else`, `@else if`  kuralları yazdığınız kodları farklı durumlar için uygulanabilir hale getirmektedir. Burada karşılaştırma operatörlerini `(==, !=, <, >, <=, >=)` bilmekte fayda var. Ayrıca mantıksal ifadeleri `(and, or, not)` bilmekte faydalı olacaktır. Bunları uzun uzun açıklamıyorum çünkü standart programlama bilgisi kapsamındadır. Eğer programlama bilginiz yoksa SASS kafanızı karıştırabilir anlamakta güçlük çekebilirsiniz. Öncelikle bu bilgiyi edinmelisiniz.
+
+Yukarıda ifade ettiğim karşılaştırma operatörleri ve mantıksal ifadelerin doğru kullanımı sonucunda `boolean` değer üretilmektedir. Bu değer `true` veya `false` olabilmektedir. İşte koşullu ifadeler bu iki değere göre işlem yapmaktadır.
+
+```scss
+  @use "sass:math";
+
+  @mixin triangle($size, $color, $direction) {
+    height: 0;
+    width: 0;
+
+    border-color: transparent;
+    border-style: solid;
+    border-width: math.div($size, 2);
+
+    @if $direction == up {
+      border-bottom-color: $color;
+    } @else if $direction == right {
+      border-left-color: $color;
+    } @else if $direction == down {
+      border-top-color: $color;
+    } @else if $direction == left {
+      border-right-color: $color;
+    } @else {
+      @error "Unknown direction #{$direction}.";
+    }
+  }
+
+  .next {
+    @include triangle(5px, black, right);
+  }
+```
+
+```css
+  .next {
+    height: 0;
+    width: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 2.5px;
+    border-left-color: black;
+  }
+```
+Yukarıdaki örneğe baktığımızda `@if` doğru(true) değeri oluştuğunda çalışacak bloktur. `@else if` blokları ise sırayla çalıştırılarak doğru(true) sonucunu bulunana dek adım adım işletilecektir. Eğer `@if` bloğu çalışırsa diğer blokların hiçbirine girmeyecektir. `@else if` bloklarından herhangi birine girerse `@else` bloğuna girmeyecektir. Ancak yukarıdakilerden hiçbiri çalışmaz ise `@else` bloğu çalışacaktır.
+
+`NOT:` Burada `@error` kuralının kullanıldığını görüyoruz. Bu kural sayesinde hatalı sonuçları konsol penceresine yazdırabilmekteyiz.
+
+#### Loops
+Tekrarlı işlemler için kullandığımız döngüler üç çeşittir. Bunlar; `@for`, `@each`, `@while` döngüleridir.
+
+-`@for:` Başlangıç ve bitiş değerlerinin verildiği `to` ile son değerin dahil edilmediği, `through` ile son değerinde dahil edildiği döngü türüdür. Bu döngü türünde listeler ve haritalar genelde kullanılmamaktadır. Daha çok belirli bir başlangıç ve bitiş değerinin olduğu durumlarda kullanılmaktadır. Ancak listeler ve haritalar üzerinde de kullanılabilmektedir. Liste veya haritanın eleman sayısını aldığımız zaman bu işlemi gerçekleştirebiliriz. Tabi daha kolayı varken zoru tercih etmek doğru olmaz.
+
+```scss
+  $base-color: #036;
+
+  @for $i from 1 through 3 {
+    ul:nth-child(3n + #{$i}) {
+      background-color: lighten($base-color, $i * 5%);
+    }
+  }
+```
+```css
+  ul:nth-child(3n + 1) {
+    background-color: #004080;
+  }
+
+  ul:nth-child(3n + 2) {
+    background-color: #004d99;
+  }
+
+  ul:nth-child(3n + 3) {
+    background-color: #0059b3;
+  }
+```
+
+-`@each:` @each kuralı, bir listenin her bir öğesi veya bir haritadaki her bir çift için stiller yayınlamayı veya kodu değerlendirmeyi kolaylaştırır.
+
+`Listeler ile kullanımı:`
+
+```scss
+  $sizes: 40px, 50px, 80px;
+
+  @each $size in $sizes {
+    .icon-#{$size} {
+      font-size: $size;
+      height: $size;
+      width: $size;
+    }
+  }
+```
+
+```css
+.icon-40px {
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+}
+
+.icon-50px {
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+}
+
+.icon-80px {
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+}
+```
+
+`Haritalar ile kullanımı:`
+
+```scss
+  $icons: ("eye": "\f112", "start": "\f12e", "stop": "\f12f");
+
+  @each $name, $glyph in $icons {
+    .icon-#{$name}:before {
+      display: inline-block;
+      font-family: "Icon Font";
+      content: $glyph;
+    }
+  }
+```
+
+```css
+  @charset "UTF-8";
+  .icon-eye:before {
+    display: inline-block;
+    font-family: "Icon Font";
+    content: "";
+  }
+
+  .icon-start:before {
+    display: inline-block;
+    font-family: "Icon Font";
+    content: "";
+  }
+
+  .icon-stop:before {
+    display: inline-block;
+    font-family: "Icon Font";
+    content: "";
+  }
+```
+
+`Destructuring:` Çoklu değer taşıyan yapıları parçalamak için `@each` parçalama (desctructuring) yapabilir.
+
+```scss
+  $icons:
+    "eye" "\f112" 12px,
+    "start" "\f12e" 16px,
+    "stop" "\f12f" 10px;
+
+  @each $name, $glyph, $size in $icons {
+    .icon-#{$name}:before {
+      display: inline-block;
+      font-family: "Icon Font";
+      content: $glyph;
+      font-size: $size;
+    }
+  }
+```
+
+```css
+  @charset "UTF-8";
+  .icon-eye:before {
+    display: inline-block;
+    font-family: "Icon Font";
+    content: "";
+    font-size: 12px;
+  }
+
+  .icon-start:before {
+    display: inline-block;
+    font-family: "Icon Font";
+    content: "";
+    font-size: 16px;
+  }
+
+  .icon-stop:before {
+    display: inline-block;
+    font-family: "Icon Font";
+    content: "";
+    font-size: 10px;
+  }
+```
+-`@while:` Bu döngü türü boolean ifade mantığına göre hareket etmektedir. Eğer geçerli karşılaştırma doğruysa(true) döngü işletilmeye devam eder. Eğer geçerli karşılaştırma yanlış(false) olursa döngü sonlandırılır.
+
+```scss
+  @use "sass:math";
+
+  @function scale-below($value, $base, $ratio: 1.618) {
+    @while $value > $base {
+      $value: math.div($value, $ratio);
+    }
+    @return $value;
+  }
+
+  $normal-font-size: 16px;
+  sup {
+    font-size: scale-below(20px, 16px);
+  }
+```
+
+```css
+  sup {
+    font-size: 12.36094px;
+  }
+```
+
+`NOT:` Yukarıdaki örnekte bölme işlemi için `math` modülünden yararlanıldığına dikkat ediniz. Dart SASS artık `/` oparetörü yerine `math` modülündeki `div` fonksiyonunu kullanmaktadır.
+
+### Inheritance(@extend)
+Eğer ortak özelliklere sahip biçimlendirmeleriniz varsa üst bir sınıfta yazarak diğer yerlerde genişletebilirsiniz. Bu işleme miras alma(inheritance) denilmektedir. Mixinlerden farkı ne? sorusunu soracaksınız. Mixin kullanırken parametre gönderebilmekteyiz ve seçici ile birlikte bir genişletme söz konusu değildir. `@extend` kuralıyla birebir kodları ilgili blok içerisine seçicisiyle birlikte kopyalamış oluyorsunuz. Eğer `placeholder selector(%)` kullanırsanız seçici değeri gelmeden genişletme yapılmış olur.
+
+```scss
+  .error:hover {
+    background-color: #fee;
+  }
+
+  .error--serious {
+    @extend .error;
+    border-width: 3px;
+  }
+```
+
+```css
+  .error:hover, .error--serious:hover {
+    background-color: #fee;
+  }
+
+  .error--serious {
+    border-width: 3px;
+  }
+```
+#### Placeholder Selectors(%)
+Eğer genişletme yaparken sınıf adının gelmesini istemiyorsanız `%` işaretini kullanabilirsiniz.
+```scss
+  %button-format {
+      padding: 10px 20px;
+      border-radius: 15px;
+      color: black;
+  }
+
+  .toolbar-button {
+      @extend %button-format;
+      background-color: lightpink;
+
+      &:hover {
+          background-color: rgb(155, 106, 114);
+      }
+  }
+
+  .status-bar-button {
+      @extend %button-format;
+      background-color: lightblue;
+
+      &:hover {
+          background-color: blue;
+      }
+  }
+```
+
+```css
+  .status-bar-button, .toolbar-button {
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: black;
+  }
+  
+  .toolbar-button {
+    background-color: lightpink;
+  }
+  .toolbar-button:hover {
+    background-color: #9b6a72;
+  }
+  
+  .status-bar-button {
+    background-color: lightblue;
+  }
+  .status-bar-button:hover {
+    background-color: blue;
+  }
+```
+
+### Modules
+Modüller kodların daha kolay yönetilmesi için hazırlanmış parçalanmış kod topluluklarıdır. Tüm kodları ve yapıları dahil etmek yerine ilgili modülü dahil edip kullanmak hem bağımlılık yönetimini kolaylaştırır hemde kod okunurluluğunu arttırır.
+
+Modüler dediğimiz zaman karşımıza 3 kural çıkmaktadır. Bunlar; `@use`, `@forward`, `@import` şeklindedir. Aslında `@import` kuralı zaten CSS tarafında da kullanılmaktadır. Ancak SASS tarafında parçalı dosya yapılarını yönetmek için `@use` kullanılması tavsiye edilmektedir. Aşağıda farklarına değiniyor olacağız.
+
+`NOT:` Dart SASS `@use` kullanımını tavsiye etmektedir. İlerleyen süreçte modüller ile `@import` kullanımını kaldıracaklar. Ayrıca `@use` kullanımı `DART SASS` için geçerlidir. SASS geliştiricileri için ana proje `DART SASS` olduğunuda unutmayın. Güncel özellikler ve yöntemler ilk olarak `DART SASS` ile karşımıza gelmektedir. 
+
+#### @import
+@import ile `tüm içeriği olduğu gibi` dahil etmektedir. Bu nedenle her parçalı dosya her değişkene veya içeriğe erişebilmektedir. Bu nedenle çakışmalar meydana gelebilmektedir. @import sadece global olarak benzersiz eklemeler için kullanılması uygundur. Örneğin `google fonts` ile bir font ekleyecekseniz bunu `@import` ile dahil etmek yanlış bir kullanım değildir.
+
+Aşağıdaki örnekte `2 farklı scss` dosyasını ana dosya olan `style.scss` dosyasına dahil etme işlemini görüyorsunuz.
+
+```scss
+  // foundation/_code.scss
+  code {
+    padding: .25em;
+    line-height: 0;
+  }
+
+  // foundation/_lists.scss
+  ul, ol {
+    text-align: left;
+
+    & & {
+      padding: {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  // style.scss
+  @import 'foundation/code', 'foundation/lists';
+```
+
+```css
+  code {
+    padding: .25em;
+    line-height: 0;
+  }
+
+  ul, ol {
+    text-align: left;
+  }
+  ul ul, ol ol {
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+```
+`NOT:` SASS dosyaları için `partial file` kavramı bulunmaktadır. Yani ilgili SASS(SCSS) dosyasının parçalı bir dosya olduğunu ana dosyada birleştirileceğini ifade eder ve tek başına derlemez. Bunun için `_filename.scss` şeklinde dosya adını `_` kullanarak başlatmanız gerekir.
+
+##### Index Files
+Eğer bir klasör içerisinde `_index.scss` dosyası varsa klasör ana scss dosyasında dahil edildiğinde direkt olarak `_index.scss` dosyası dahil edilir. Yani klasörleme yapıldığında `_index.scss` olmadan ilgili klasörlerin altındaki scss dosyalarını tek tek yüklemek gerekirken. Klasörleme yapıldığında `_index.scss` dosyasında mevcut klasördeki scss dosyaları dahil edilerek daha kolay yönetim sağlanabilir.
+
+```scss
+  // foundation/_code.scss
+  code {
+    padding: .25em;
+    line-height: 0;
+  }
+
+  // foundation/_lists.scss
+  ul, ol {
+    text-align: left;
+
+    & & {
+      padding: {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  // foundation/_index.scss
+  @import 'code', 'lists';
+
+  // style.scss
+  @import 'foundation';
+```
+Yukarıda görüldüğü gibi `foundation` klasörü altında bulunan `_code.scss` ve `_lists.scss` dosyaları yine `foundation` altında bulunan `_index.scss` dosyasında birleştirilmiştir. Bu sayede `style.scss` dosyasında sadece ilgili klasörü dahil etmemeiz yeterli olmuştur.
+
+##### Nesting and Interpolation
+Bir mixin ile alınan parametreye göre `@import` kullanılabilir.
+
+```scss
+  @mixin google-font($family) {
+    @import url("http://fonts.googleapis.com/css?family=#{$family}");
+  }
+
+  @include google-font("Droid Sans");
+```
+
+```css
+  @import url("http://fonts.googleapis.com/css?family=Droid Sans");
+```
+
+`NOT:` `@use` kuralları içeren bir dosyayı içe aktardığınızda(@import), içe aktarılan dosyanın doğrudan o dosyada tanımlanan tüm üyelere (hatta özel üyeler) erişimi olur, ancak dosyanın yüklediği modüllerden hiçbir üyeye erişemez. Ancak bu dosya `@forward` kuralları içeriyorsa içe aktarılan dosyanın yönlendirilen üyelere erişimi olur. Bu, modül sistemiyle kullanılmak üzere yazılmış bir kitaplığı içe aktarabileceğiniz anlamına gelir.
+
+`NOT:` Modüller yalnızca bir kez yüklenir, bu nedenle, bir modülü ilk kez içe aktardıktan(@import) sonra (dolaylı olarak bile olsa) yapılandırmayı değiştirirseniz, modülü tekrar içe aktarırsanız(@import) değişiklik yoksayılır.
+
+#### @use
+- @use kuralı, diğer SASS stil sayfalarından `mixins`, `functions` ve `variables` ifadelerini yükler ve birden çok stil sayfasından CSS'yi birleştirir. `@use` tarafından yüklenen stil sayfalarına `modüller` denir. SASS ayrıca kullanışlı işlevlerle dolu yerleşik modüller `(built-in modules)` sağlar.
+
+- En basit @use kuralı, modülü verilen URL'ye yükleyen @use "url" şeklinde yazılır. Bu şekilde yüklenen stiller, bu stiller kaç kez yüklenmiş olursa olsun, derlenmiş CSS çıktısına tam olarak bir kez dahil edilir.
+
+```scss
+  // foundation/_code.scss
+  code {
+    padding: .25em;
+    line-height: 0;
+  }
+
+  // foundation/_lists.scss
+  ul, ol {
+    text-align: left;
+
+    & & {
+      padding: {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  // style.scss
+  @use 'foundation/code';
+  @use 'foundation/lists';
+```
+
+```css
+  code {
+    padding: .25em;
+    line-height: 0;
+  }
+
+  ul, ol {
+    text-align: left;
+  }
+  ul ul, ol ol {
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+```
+
+- namespace.variable, namespace.function>() veya @include namespace.mixin() yazarak başka bir modülden değişkenlere, işlevlere ve karışımlara erişebilirsiniz. Varsayılan olarak ad alanı, modülün URL'sinin yalnızca son bileşenidir. `@use` ile yüklenen üyeler (değişkenler, işlevler ve karışımlar) yalnızca onları yükleyen stil sayfasında görünür. Diğer stil sayfalarının da erişmek istiyorlarsa kendi `@use` kurallarını yazmaları gerekir. Bu, her üyenin tam olarak nereden geldiğini bulmayı kolaylaştırır. Birçok dosyadan üyeleri aynı anda yüklemek istiyorsanız, hepsini tek bir paylaşılan dosyadan iletmek için `@forward` kuralını kullanabilirsiniz.
+
+```scss
+// src/_corners.scss
+$radius: 3px;
+
+@mixin rounded {
+  border-radius: $radius;
+}
+
+// style.scss
+@use "src/corners";
+
+.button {
+  @include corners.rounded;
+  padding: 5px + corners.$radius;
+}
+```
+
+```css
+.button {
+  border-radius: 3px;
+  padding: 8px;
+}
+```
+- Yukarıdaki örnekte görüldüğü gibi @use ile dahil edilen corners.scss dosyasının içerisindeki  `$radius` değişkenine `corners.$radius` olarak eriştik.
+
+##### Choosing a Namespace
+- Namespace özelleştirmesi için `as` anahtar kelimesi kullanılabilir. Bu sayede uzun uzun namespace yazmak zorunda kalmayacaksınız.
+
+```scss
+// src/_corners.scss
+  $radius: 3px;
+
+  @mixin rounded {
+    border-radius: $radius;
+  }
+
+  // style.scss
+  @use "src/corners" as c;
+
+  .button {
+    @include c.rounded;
+    padding: 5px + c.$radius;
+  }
+```
+
+```css
+  .button {
+    border-radius: 3px;
+    padding: 8px;
+  }
+```
+
+- @use "url" ifadesini * olarak yazarak ad alanı olmayan bir modülü bile yükleyebilirsiniz. Ancak bu çok tavsiye edilmez. Eğer baştan sona kendi yapılarınızı kullanıyorsanız uygun olacaktır. Yoksa dahil edilen farklı dosyalardaki variable, mixin, function için ad çakışması yaşayabilirsiniz. 
+
+
+```scss
+// src/_corners.scss
+  $radius: 3px;
+
+  @mixin rounded {
+    border-radius: $radius;
+  }
+
+// style.scss
+  @use "src/corners" as *;
+
+  .button {
+    @include rounded;
+    padding: 5px + $radius;
+  }
+```
+
+```css
+  .button {
+    border-radius: 3px;
+    padding: 8px;
+  }
+```
+
+##### Private Members
+Eğer gizli değişkenler oluşturmak istiyorsanız `$-degiskenadi` şeklinde değişkenkleri bildirebilirsiniz. Bu sayede sadece ilgili modüle özel olarak kullanılabilecektir ve dışarıdan erişilemeyecektir.
+
+```scss
+// src/_corners.scss
+$-radius: 3px;
+
+@mixin rounded {
+  border-radius: $-radius;
+}
+
+// style.scss
+@use "src/corners";
+
+.button {
+  @include corners.rounded;
+
+  // $-radius değişkenine erişilemez hata alırsınız.
+  padding: 5px + corners.$-radius;
+}
+```
+
+`!default` flag: daha önce açıklamasını vermiştim ancak hatırlatmakta fayda var. Bu bayrak sayesinde değişkenin bir varsayılan değeri olur ve dışarıdan bir değer atanana kadar mevcut değeri korumaya devam eder.
+
+Aşağıdaki örnekte @use ile dahil edilen modül için tanımlı !default bayraklarına sahip değişkenlerin değerlerini yükleme aşamasında `with` ile değiştirebilmekteyiz.
+
+```scss
+  // _library.scss
+  $black: #000 !default;
+  $border-radius: 0.25rem !default;
+  $box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+
+  code {
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+  // style.scss
+  @use 'library' with (
+    $black: #222,
+    $border-radius: 0.1rem
+  );
+```
+
+```css
+  code {
+    border-radius: 0.1rem;
+    box-shadow: 0 0.5rem 1rem rgba(34, 34, 34, 0.15);
+  }
+```
+
+##### Mixin Configure
+Yukarıda basit bir örneği verilen `with` ve `!default` ile başlangıç yapılandırmasını `mixin` kullanarak yapmak daha sağlıklı olacaktır.
+
+
+```scss
+// _library.scss
+  $-black: #000;
+  $-border-radius: 0.25rem;
+  $-box-shadow: null;
+
+  @function -box-shadow() {
+    @return $-box-shadow or (0 0.5rem 1rem rgba($-black, 0.15));
+  }
+
+  @mixin configure($black: null, $border-radius: null, $box-shadow: null) {
+    @if $black {
+      $-black: $black !global;
+    }
+    @if $border-radius {
+      $-border-radius: $border-radius !global;
+    }
+    @if $box-shadow {
+      $-box-shadow: $box-shadow !global;
+    }
+  }
+
+  @mixin styles {
+    code {
+      border-radius: $-border-radius;
+      box-shadow: -box-shadow();
+    }
+  }
+
+// style.scss
+  @use 'library';
+
+  @include library.configure(
+    $black: #222,
+    $border-radius: 0.1rem
+  );
+
+  @include library.styles;
+```
+
+```css
+  code {
+    border-radius: 0.1rem;
+    box-shadow: 0 0.5rem 1rem rgba(34, 34, 34, 0.15);
+  }
+```
+
+#### @forward
+- `@forward` kuralı bir SASS stil sayfası yükler ve stil sayfanız `@use` kuralı ile yüklendiğinde `mixins`,`functions` ve `variables` ifadeleri kullanılabilir hale gelir. Kullanıcılarının tek bir giriş noktası dosyası yüklemesine izin verirken, birçok dosyada SASS kitaplıklarını düzenlemeyi mümkün kılar.
+
+- `@forward` kuralı, bir modülün CSS'si söz konusu olduğunda tıpkı `@use` gibi davranır. Yönlendirilen bir modülden gelen stiller, `derlenmiş CSS` çıktısına `dahil edilir` ve `@forward` içeren modül, @use ile kullanılmamış olsa bile onu genişletebilir.
+
+```scss
+// src/_list.scss
+  @mixin list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+// bootstrap.scss
+  @forward "src/list";
+// styles.scss
+  @use "bootstrap";
+
+  li {
+    @include bootstrap.list-reset;
+  }
+```
+
+```css
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+```
+##### Adding a Prefix
+- Modül üyeleri genellikle bir ad alanıyla(namespace) kullanıldığından, kısa ve basit adlar genellikle en okunaklı seçenektir. Ancak bu adlar, tanımlandıkları modülün dışında bir anlam ifade etmeyebilir, bu nedenle `@forward`, yönlendirdiği tüm üyelere fazladan bir önek(prefix) ekleme seçeneğine sahiptir.
+
+
+```scss
+// src/_list.scss
+  @mixin reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+// bootstrap.scss
+  @forward "src/list" as list-*;
+// styles.scss
+  @use "bootstrap";
+
+  li {
+    @include bootstrap.list-reset;
+  }
+```
+
+```css
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+```
+
+##### Controlling Visibility
+Bazen her üyeyi bir modülden yönlendirmek istemezsiniz. Yalnızca paketinizin kullanabilmesi için bazı üyeleri gizli tutmak veya kullanıcılarınızın bazı üyeleri farklı bir şekilde yüklemesini zorunlu kılmak isteyebilirsiniz. @forward "url" hide members... veya @forward "url" show members... yazarak tam olarak hangi üyelerin yönlendirileceğini kontrol edebilirsiniz.
+
+
+```scss
+  // src/_list.scss
+  $horizontal-list-gap: 2em;
+
+  @mixin list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @mixin list-horizontal {
+    @include reset;
+
+    li {
+      display: inline-block;
+      margin: {
+        left: -2px;
+        right: $horizontal-list-gap;
+      }
+    }
+  }
+  // bootstrap.scss
+  @forward "src/list" hide list-reset, $horizontal-list-gap;
+```
+
+#### Configuring Modules
+`@forward` kuralı, yapılandırmalı bir modül de yükleyebilir. Bu, çoğunlukla `@use` için olduğu gibi çalışır, bir ek ile: `@forward` kuralının yapılandırmasında `!default` bayrağını kullanabilir. Bu, bir modülün bir üst stil sayfasının varsayılanlarını değiştirmesine izin verirken, ayrıca altındaki stil sayfalarının da bunları geçersiz kılmasına izin verir.
+
+```scss
+  // _library.scss
+  $black: #000 !default;
+  $border-radius: 0.25rem !default;
+  $box-shadow: 0 0.5rem 1rem rgba($black, 0.15) !default;
+
+  code {
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+  }
+
+  // _opinionated.scss
+  @forward 'library' with (
+    $black: #222 !default,
+    $border-radius: 0.1rem !default
+  );
+  // style.scss
+  @use 'opinionated' with ($black: #333);
+```
+
+```css
+  code {
+    border-radius: 0.1rem;
+    box-shadow: 0 0.5rem 1rem rgba(51, 51, 51, 0.15);
+  }
+```
+
+### Rules to help you prepare a library
+
+#### @debug
+Stil sayfanızı geliştirirken bazen bir değişkenin veya ifadenin değerini görmek faydalı olabilir. @debug kuralı bunun içindir: @debug expression olarak yazılır. Çıktı olarak dosya adı ve satır numarasıyla birlikte bu ifadenin değerini yazdırır.
+
+```scss
+  @mixin inset-divider-offset($offset, $padding) {
+    $divider-offset: (2 * $padding) + $offset;
+    @debug "divider offset: #{$divider-offset}";
+
+    margin-left: $divider-offset;
+    width: calc(100% - #{$divider-offset});
+  }
+```
+
+```console
+  test.scss:3 Debug: divider offset: 132px
+```
+
+#### @warn
+Mixins ve Functions yazarken, kullanıcıları belirli argümanları veya belirli değerleri iletmekten caydırmak isteyebilirsiniz. Artık kullanımdan kaldırılan eski argümanları iletiyorlar veya API'nizi pek uygun olmayan bir şekilde çağırıyor olabilirler. @error kuralından farklı olarak sass derlemesini durdurmazlar.
+
+```scss
+  @mixin inset-divider-offset($offset, $padding) {
+    $divider-offset: (2 * $padding) + $offset;
+    @debug "divider offset: #{$divider-offset}";
+
+    margin-left: $divider-offset;
+    width: calc(100% - #{$divider-offset});
+  }
+```
+
+```console
+  test.scss:3 Debug: divider offset: 132px
+```
+
+#### @error
+Bağımsız değişken alan mixin ve function yazarken, genellikle bu bağımsız değişkenlerin API'nizin beklediği türlere ve biçimlere sahip olduğundan emin olmak istersiniz. Değillerse, kullanıcının bilgilendirilmesi ve mixin/function çalışmayı durdurması gerekir.
+
+```scss
+  @mixin reflexive-position($property, $value) {
+    @if $property != left and $property != right {
+      @error "Property #{$property} must be either left or right.";
+    }
+
+    $left-value: if($property == right, initial, $value);
+    $right-value: if($property == right, $value, initial);
+
+    left: $left-value;
+    right: $right-value;
+    [dir=rtl] & {
+      left: $right-value;
+      right: $left-value;
+    }
+  }
+
+  .sidebar {
+    @include reflexive-position(top, 12px);
+  }
+```
+
+```console
+Error: "Property top must be either left or right."
+  ╷
+3 │     @error "Property #{$property} must be either left or right.";
+  │     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+  example.scss 3:5   reflexive-position()
+  example.scss 19:3  root stylesheet
+```
+
+
+
+
